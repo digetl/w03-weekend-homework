@@ -1,9 +1,9 @@
-Movie1.new({'title' => 'Apocalypse Now', 'genre' => 'action'})
-Movie2.new({'title' => 'Aliens', 'genre' => 'sci-fi'})
-Movie3.new({'title' => 'Braveheart', 'genre' => 'historical'})
-Movie4.new({'title' => 'Raiders of the Lost Ark', 'genre' => 'action'})
-Movie5.new({'title' => 'Die Hard', 'genre' => 'action'})
-Movie6.new({'title' => 'The Martian', 'genre' => 'sci-fi'})
+Movie1.new({'title' => 'Apocalypse Now', 'price' => '10'})
+Movie2.new({'title' => 'Aliens', 'price' => '15'})
+Movie3.new({'title' => 'Braveheart', 'price' => '10'})
+Movie4.new({'title' => 'Raiders of the Lost Ark', 'price' => '15'})
+Movie5.new({'title' => 'Die Hard', 'price' => '10'})
+Movie6.new({'title' => 'The Martian', 'price' => '20'})
 
 Customer1.new({'name' => 'Dave Campbell,'wallet' => '100'})
 Customer2.new({'name' => 'Ethan Campbell,'wallet' => '90'})
@@ -13,3 +13,15 @@ Customer5.new({'name' => 'John Campbell,'wallet' => '50'})
 Customer6.new({'name' => 'Harry Campbell,'wallet' => '150'})
 Customer7.new({'name' => 'Sally Campbell,'wallet' => '150'})
 Customer8.new({'name' => 'Molly Campbell,'wallet' => '5'})
+
+ticket1 = Ticket.new({ 'customer_id' => customer1.id, 'movie_id' => movie1.id, 'number_of_tickets_bought' => '2'})
+
+ticket2 = Ticket.new({ 'customer_id' => customer2.id, 'movie_id' => movie2.id, 'number_of_tickets_bought' => '4'})
+
+ticket3 = Ticket.new({ 'customer_id' => customer3.id, 'movie_id' => movie3.id, 'number_of_tickets_bought' => '6'})
+
+ticket4 = Ticket.new({ 'customer_id' => customer4.id, 'movie_id' => movie1.id, 'number_of_tickets_bought' => '12'})
+
+ticket5 = Ticket.new({ 'customer_id' => customer5.id, 'movie_id' => movie2.id, 'number_of_tickets_bought' => '14'})
+
+ticket6 = Ticket.new({ 'customer_id' => customer6.id, 'movie_id' => movie3.id, 'number_of_tickets_bought' => '16'})
