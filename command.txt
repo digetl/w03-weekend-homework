@@ -1,0 +1,12 @@
+psql -d cc_cinema -f db/cc_cinema.sql
+
+SELECT customers.*
+FROM customers
+INNER JOIN tickets
+ON tickets.movie_id = 4
+
+SELECT customers.*
+FROM customers
+INNER JOIN tickets
+ON tickets.id = tickets.customer_id
+WHERE movies.id = 2
