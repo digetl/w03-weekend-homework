@@ -28,4 +28,16 @@ attr_accessor :name, :wallet
         @id = customer['id'].to_i
     end
 
+    def self.all()
+        sql "SELECT FROM * customers"
+        customer_data = SqlRunner.run(sql)
+        (customer_data)
+    end
+
+    def self.delete_all()
+        sql = "DELETE FROM customers"
+        SqlRunner.run(sql)
+    end
+
+
 end

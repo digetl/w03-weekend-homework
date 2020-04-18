@@ -30,8 +30,8 @@ class Movie
 
     def self.all()
         sql "SELECT FROM * movies"
-        ticket_data = SqlRunner.run(sql)
-        (ticket_data)
+        movie_data = SqlRunner.run(sql)
+        (movie_data)
     end
 
     def self.delete_all()
