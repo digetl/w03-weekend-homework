@@ -28,8 +28,23 @@ class Movie
             @id = movie['id'].to_i
     end
 
+    def update()
+        sql = "UPDATE movies
+        SET
+        (title,
+        price)
+        =
+        (
+            $1, $2
+        )
+        WHERE id = $3"
+        values = [@title, @price, @id]
+        SqlRunner.run(sql, values)
+    end
+    
+
     def self.all()
-        sql "SELECT FROM * movies"
+        sql = "SELECT * FROM movies"
         movie_data = SqlRunner.run(sql)
         return Movie.map_items(movie_data)
     end

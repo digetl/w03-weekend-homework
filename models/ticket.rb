@@ -35,6 +35,22 @@ class Ticket
         return Ticket.map_items(ticket_data)
     end
 
+    def update()
+        sql = "UPDATE tickets
+        SET
+        (customer_id,
+        movie_id,
+        number_of_tickets_bought)
+        =
+        (
+            $1, $2, $3
+        )
+        WHERE id = $4"
+        values = [@customer_id, @movie_id, @number_of_tickets_bought, @id]
+        SqlRunner.run(sql, values)
+    end
+
+
     def self.delete_all()
         sql = "DELETE FROM tickets"
         SqlRunner.run(sql)

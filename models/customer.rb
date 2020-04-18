@@ -28,8 +28,22 @@ attr_accessor :name, :wallet
         @id = customer['id'].to_i
     end
 
+    def update()
+        sql = "UPDATE customers
+        SET
+        (name,
+        wallet)
+        =
+        (
+            $1, $2
+        )
+        WHERE id = $3"
+        values = [@name, @wallet, @id]
+        SqlRunner.run(sql, values)
+    end
+
     def self.all()
-        sql "SELECT * FROM customers"
+        sql = "SELECT * FROM customers"
         customer_data = SqlRunner.run(sql)
         return Customer.map_items(customer_data)
     end
@@ -55,7 +69,7 @@ attr_accessor :name, :wallet
     def self.map_items(customer_data)
         result = customer_data.map { |customer| Customer.new( customer ) }
         return result
-      end
+    end
     
 
 
