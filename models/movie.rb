@@ -28,6 +28,15 @@ class Movie
             @id = movie['id'].to_i
     end
 
+    def self.all()
+        sql "SELECT FROM * movies"
+        ticket_data = SqlRunner.run(sql)
+        (ticket_data)
+    end
 
+    def self.delete_all()
+        sql = "DELETE FROM movies"
+        SqlRunner.run(sql)
+    end
 
 end
