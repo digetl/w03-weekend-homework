@@ -31,7 +31,7 @@ attr_accessor :name, :wallet
     def self.all()
         sql "SELECT FROM * customers"
         customer_data = SqlRunner.run(sql)
-        (customer_data)
+        return Customer.map_items(customer_data)
     end
 
     def self.delete_all()

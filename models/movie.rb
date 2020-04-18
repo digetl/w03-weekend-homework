@@ -31,7 +31,7 @@ class Movie
     def self.all()
         sql "SELECT FROM * movies"
         movie_data = SqlRunner.run(sql)
-        (movie_data)
+        return Movie.map_items(movie_data)
     end
 
     def self.delete_all()
@@ -42,6 +42,6 @@ class Movie
     def self.map_items(movie_data)
         result = movie_data.map { |movie| Movie.new( movie ) }
         return result
-      end
+    end
 
 end
