@@ -39,6 +39,19 @@ attr_accessor :name, :wallet
         SqlRunner.run(sql)
     end
 
+    def movies()
+        sql = "SELECT movies.*
+        FROM movies
+        INNER JOIN tickets
+        on tickets.movie_id = movie_id
+        WHERE customer_id ="
+        VALUES = [@id]
+        movie_data = SqlRunner.run(sql, values)
+        return Movie.map_items(movie_data)
+
+    end
+
+
     def self.map_items(customer_data)
         result = customer_data.map { |customer| Customer.new( customer ) }
         return result
