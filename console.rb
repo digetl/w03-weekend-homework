@@ -28,14 +28,14 @@ customer6 = Customer.new({'name' => 'Harry Campbell','wallet' => '150'})
 customer7 = Customer.new({'name' => 'Sally Campbell','wallet' => '150'})
 customer8 = Customer.new({'name' => 'Molly Campbell','wallet' => '5'})
 
-customer1 = Customer.save()
-customer2 = Customer.save()
-customer3 = Customer.save()
-customer4 = Customer.save()
-customer5 = Customer.save()
-customer6 = Customer.save()
-customer7 = Customer.save()
-customer8 = Customer.save()
+customer1.save()
+customer2.save()
+customer3.save()
+customer4.save()
+customer5.save()
+customer6.save()
+customer7.save()
+customer8.save()
 
 ticket1 = Ticket.new({ 'customer_id' => customer1.id, 'movie_id' => movie1.id, 'number_of_tickets_bought' => '2'})
 
@@ -61,8 +61,6 @@ ticket5.save()
 ticket6.save()
 ticket7.save()
 ticket8.save()
-
-
 
 
 binding.pry

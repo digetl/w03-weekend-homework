@@ -12,7 +12,8 @@ attr_accessor :name, :wallet
     end
 
     def save()
-        sql = "INSERT INTO customers
+        sql = "INSERT INTO
+        customers
         (
             name,
             wallet
@@ -22,7 +23,7 @@ attr_accessor :name, :wallet
             $1, $2
         )
         RETURNING id"
-        values = [@name]
+        values = [@name, @wallet]
         customer = SqlRunner.run(sql, values).first
         @id = customer['id'].to_i
     end
