@@ -29,5 +29,13 @@ class Ticket
         @id = ticket['id'].to_i
     end
 
+    def self.all()
+        sql "SELECT FROM * tickets"
+        ticket_data = SqlRunner.run(sql)
+        (ticket_data)
+    end
+
+    
+
 
 end
