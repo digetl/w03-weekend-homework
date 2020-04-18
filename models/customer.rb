@@ -47,7 +47,7 @@ attr_accessor :name, :wallet
         WHERE customer_id ="
         VALUES = [@id]
         movie_data = SqlRunner.run(sql, values)
-        return Movie.map_items(movie_data)
+        return Customer.map_items(movie_data)
 
     end
 
