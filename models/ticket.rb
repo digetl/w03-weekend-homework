@@ -24,15 +24,15 @@ class Ticket
             $1, $2, $3
         )
         RETURNING id"
-        values = [@customer_id, @movie_id, number_of_tickets_bought]
+        values = [@customer_id, @movie_id, @number_of_tickets_bought]
         ticket = SqlRunner.run(sql, values).first
         @id = ticket['id'].to_i
     end
 
     def self.all()
-        sql "SELECT FROM * tickets"
+        sql = "SELECT * FROM tickets"
         ticket_data = SqlRunner.run(sql)
-        return Visit.map_items(ticket_data)
+        return Ticket.map_items(ticket_data)
     end
 
     def self.delete_all()
