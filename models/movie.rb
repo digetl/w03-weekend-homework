@@ -13,7 +13,7 @@ class Movie
 
     def save()
         sql = "INSERT INTO
-        moives
+        movies
         (
             title,
             price
@@ -27,7 +27,7 @@ class Movie
             movie = SqlRunner.run(sql, values).first
             @id = movie['id'].to_i
     end
-    
+
 
 
 end
