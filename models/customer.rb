@@ -39,5 +39,11 @@ attr_accessor :name, :wallet
         SqlRunner.run(sql)
     end
 
+    def self.map_items(customer_data)
+        result = customer_data.map { |customer| Customer.new( customer ) }
+        return result
+      end
+    
+
 
 end

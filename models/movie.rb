@@ -39,4 +39,9 @@ class Movie
         SqlRunner.run(sql)
     end
 
+    def self.map_items(movie_data)
+        result = movie_data.map { |movie| Movie.new( movie ) }
+        return result
+      end
+
 end
