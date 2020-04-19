@@ -62,7 +62,6 @@ attr_accessor :name, :wallet
         values = [@id]
         movie_data = SqlRunner.run(sql, values)
         return Movie.map_items(movie_data)
-
     end
 
 
@@ -71,6 +70,29 @@ attr_accessor :name, :wallet
         return result
     end
     
+    def pay_for_ticket()
+        sql = "SELECT movies.price
+        FROM movies
+        INNER JOIN tickets
+        on movies.id = tickets.movie_id
+        WHERE tickets.customer_id = $1"
+        values = [@id]
+        movie_data = SqlRunner.run(sql, values)
+        ticket_price = Movie.map_items(movie_data)[0].price.to_i
+
+        sql = "UPDATE customers
+        SET
+        (name,
+        wallet)
+        =
+        (
+            $1, $2
+        )
+        WHERE id = $3"
+        values = [@name, @wallet, @id]
+        SqlRunner.run(sql, values)
+
+    end
 
 
 end
