@@ -79,18 +79,13 @@ attr_accessor :name, :wallet
         values = [@id]
         movie_data = SqlRunner.run(sql, values)
         ticket_price = Movie.map_items(movie_data)[0].price.to_i
+        @wallet.to_i
+       
+        # sql = "SELECT customers.wallet FROM customers
+        # WHERE customers.id = $1"
+        # values = [@id]
+        # SqlRunner.run(sql, values)
 
-        sql = "UPDATE customers
-        SET
-        (name,
-        wallet)
-        =
-        (
-            $1, $2
-        )
-        WHERE id = $3"
-        values = [@name, @wallet, @id]
-        SqlRunner.run(sql, values)
 
     end
 
