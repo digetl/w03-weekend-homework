@@ -54,14 +54,14 @@ attr_accessor :name, :wallet
     end
 
     def movies()
-        sql = "SELECT movies.*
+        sql = "SELECT movies.title
         FROM movies
         INNER JOIN tickets
-        on tickets.movie_id = movie_id
-        WHERE customer_id = $1"
+        on movies.id = tickets.movie_id
+        WHERE tickets.customer_id = $1"
         values = [@id]
         movie_data = SqlRunner.run(sql, values)
-        return Customer.map_items(movie_data)
+        return Movie.map_items(movie_data)
 
     end
 
