@@ -59,4 +59,16 @@ class Movie
         return result
     end
 
+    def customers()
+        sql = "SELECT customers.name
+        FROM customers
+        INNER JOIN tickets
+        on customers.id = tickets.customer_id
+        WHERE movie_id = $1"
+        values = [@id]
+        customer_data = SqlRunner.run(sql, values)
+        return Customer.map_items(customer_data)
+    end
+
+
 end
