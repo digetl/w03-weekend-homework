@@ -82,5 +82,14 @@ class Movie
 
     end
 
+    def sort()
+        sql = "SELECT *
+        FROM customers
+        ORDER by name"
+        customer_data = SqlRunner.run(sql)
+        return Customer.map_items(customer_data)
+    end
+
+
 
 end
